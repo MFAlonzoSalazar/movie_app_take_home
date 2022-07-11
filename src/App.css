@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  color: #FFC0CB;
 }
 
 .App-logo {
@@ -36,3 +37,18 @@
     transform: rotate(360deg);
   }
 }
+
+.MovieCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFC0CB;
+  box-shadow: 4px 4px 8px #ae01ae;
+  border: 1px solid white;
+  margin: 5px;
+  border-radius: 10px;
+  width: 15vw;
+  padding: 20px;
+}
+
+
