@@ -19,10 +19,13 @@ export default function Home(){
 
     return(
       <div className="Home">
-        <h1 style={{textDecoration: "underline"}}> MovieQueue </h1>
-        <h2> Keep track of what to watch next </h2>
+
+        <h1 style={{textDecoration: "underline"}}> Movie Search </h1>
+        <h2> Search for movies by name </h2>
+
         <MovieSearchForm movieName={movieName} setMovieName={setMovieName}/>
         <br />
+
         {!loading ? (
           <div className="FlexContainer">
             {moviesExist ? (
@@ -36,8 +39,7 @@ export default function Home(){
         ):(
           <Loading />
         )}
-
-        
+ 
       </div>
   );
 }
