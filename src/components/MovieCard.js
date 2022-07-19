@@ -1,6 +1,11 @@
 export default function MovieCard(props){
+    let openModal = () => {
+        props.setMovieId(props.id);
+        props.setIsModalOpen(true);
+    }
+
     return (
-        <div className="MovieCard" style={{color: "#ae01ae"}}>
+        <button onClick={()=> openModal()} className="MovieCard" style={{color: "#ae01ae"}}>
             <div className="MovieCard-Title"> {props.title} </div>
             <br />
 
@@ -13,6 +18,6 @@ export default function MovieCard(props){
             <br />
 
             <div className="MovieCard-Year"> {props.year} </div>
-        </div>
+        </button>
     );
 }

@@ -3,6 +3,8 @@ import MovieCard from "./MovieCard";
 import { useState, useEffect } from "react";
 import MovieSearchForm from "./MovieSearchForm";
 import { getMoviesByName } from "./utils";
+import MoviePickerModal from "./MoviePickerModal";
+
 
 
 
@@ -12,6 +14,9 @@ export default function Home(){
   const [moviesExist, setMoviesExist] = useState(0);
   const [movieName, setMovieName] = useState("")
   const [loading, setLoading] = useState(false);
+  const [movieId, setMovieId] = useState("");
+  const [movieInfo, setMovieInfo] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
     
   useEffect(() => {
     getMoviesByName(setLoading,movieName,setMovies,setMoviesExist);
@@ -30,7 +35,8 @@ export default function Home(){
           <div className="FlexContainer">
             {moviesExist ? (
               movies.Search.map((movie, index)=> (
-                <MovieCard key={index} title = {movie.Title} poster={movie.Poster} year={movie.Year}/>
+                <MovieCard key={index} title = {movie.Title} poster={movie.Poster} year={movie.Year} id={movie.imdbID}
+                  setMovieId={setMovieId} setIsModalOpen={setIsModalOpen} />
               ))
             ) : (
               <h3> No Movies Found </h3>
@@ -39,6 +45,9 @@ export default function Home(){
         ):(
           <Loading />
         )}
+
+        <MoviePickerModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} movieId={movieId} 
+          setMovieInfo={setMovieInfo} movieInfo={movieInfo}/>
  
       </div>
   );
